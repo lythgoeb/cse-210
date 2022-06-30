@@ -1,0 +1,30 @@
+function showTabs(event, languageName) {
+  
+  event.preventDefault()
+  var i, tabcontent, tablinks;
+
+  // get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // get all elements with class="tablinks" and inactivate them
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // get all elements with class="<language name>" and show them
+  tabcontent = document.getElementsByClassName("tabcontent " + languageName);
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "block";
+  }
+
+  // get all elements with class="<language name>" and activate them
+  tablinks = document.getElementsByClassName("tablinks " + languageName);
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className += " active";
+  }
+
+}
